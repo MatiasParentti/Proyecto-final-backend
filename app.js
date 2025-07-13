@@ -9,6 +9,7 @@ const usuarioRoutes = require("./routes/usuario.routes");
 const authRoutes = require("./routes/auth.routes");
 const logRoutes = require("./routes/log.routes");
 const carritoRoutes = require("./routes/carrito.routes");
+const compraRoutes = require("./routes/compra.routes");
 const authMiddleware = require("./middleware/auth.middleware");
 
 // Instancia de la app
@@ -30,6 +31,7 @@ app.use(logMiddleware);
 app.use("/api/productos", productosRoutes);
 app.use("/api/usuarios", usuarioRoutes);
 app.use("/api/carrito", carritoRoutes);
+app.use("/api/compra", compraRoutes);
 app.use("/api/logs", logRoutes);
 app.use("/auth", authRoutes);
 
