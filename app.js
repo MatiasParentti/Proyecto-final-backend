@@ -8,6 +8,7 @@ const productosRoutes = require("./routes/producto.routes");
 const usuarioRoutes = require("./routes/usuario.routes");
 const authRoutes = require("./routes/auth.routes");
 const logRoutes = require("./routes/log.routes");
+const carritoRoutes = require("./routes/carrito.routes");
 const authMiddleware = require("./middleware/auth.middleware");
 
 // Instancia de la app
@@ -28,6 +29,7 @@ app.use(logMiddleware);
 // Configuracion de rutas
 app.use("/api/productos", productosRoutes);
 app.use("/api/usuarios", usuarioRoutes);
+app.use("/api/carrito", carritoRoutes);
 app.use("/api/logs", logRoutes);
 app.use("/auth", authRoutes);
 
@@ -37,7 +39,7 @@ app.get("/dashboard", authMiddleware, (req, res) => {
 
 // Configuracion de redireccion (por defecto)
 app.get("/", (req, res) => {
-  res.redirect("/auth");
+  res.redirect("/dashboard");
 });
 
 // Middleware de error 404

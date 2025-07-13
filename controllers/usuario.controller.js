@@ -1,6 +1,6 @@
 const Usuario = require("../models/usuario.model");
 
-function getAllUsuarios(req, res) {
+const getAllUsuarios = (req, res) => {
   try {
     const usuarios = Usuario.getAll();
     res.json(usuarios);
@@ -8,9 +8,9 @@ function getAllUsuarios(req, res) {
     console.error("[Error]", err.message);
     res.status(500).json({ error: "Error al obtener usuarios" });
   }
-}
+};
 
-function getUsuarioById(req, res) {
+const getUsuarioById = (req, res) => {
   try {
     const usuario = Usuario.getById(req.params.id);
     if (!usuario)
@@ -20,9 +20,9 @@ function getUsuarioById(req, res) {
     console.error("[Error]", err.message);
     res.status(500).json({ error: "Error al buscar el usuario" });
   }
-}
+};
 
-function createUsuario(req, res) {
+const createUsuario = (req, res) => {
   try {
     const result = Usuario.create(req.body);
     res.status(201).json({ id: result.lastInsertRowid });
@@ -30,9 +30,9 @@ function createUsuario(req, res) {
     console.error("[Error]", err.message);
     res.status(400).json({ error: err.message });
   }
-}
+};
 
-function updateUsuario(req, res) {
+const updateUsuario = (req, res) => {
   try {
     const result = Usuario.update(req.params.id, req.body);
     if (result.changes === 0)
@@ -42,9 +42,9 @@ function updateUsuario(req, res) {
     console.error("[Error]", err.message);
     res.status(400).json({ error: err.message });
   }
-}
+};
 
-function deleteUsuario(req, res) {
+const deleteUsuario = (req, res) => {
   try {
     const result = Usuario.remove(req.params.id);
     if (result.changes === 0)
@@ -54,7 +54,7 @@ function deleteUsuario(req, res) {
     console.error("[Error]", err.message);
     res.status(500).json({ error: "Error al eliminar el usuario" });
   }
-}
+};
 
 module.exports = {
   getAllUsuarios,
