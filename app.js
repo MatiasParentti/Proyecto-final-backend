@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const createError = require("http-errors");
 const logMiddleware = require("./middleware/log.middleware");
 const productosRoutes = require("./routes/producto.routes");
+const carritoRoutes = require("./routes/carrito.routes");
 const usuarioRoutes = require("./routes/usuario.routes");
 const authRoutes = require("./routes/auth.routes");
 const logRoutes = require("./routes/log.routes");
@@ -27,12 +28,16 @@ app.use(logMiddleware);
 
 // Configuracion de rutas
 app.use("/api/productos", productosRoutes);
+app.use("/api/carrito", carritoRoutes);
 app.use("/api/usuarios", usuarioRoutes);
 app.use("/api/logs", logRoutes);
 app.use("/auth", authRoutes);
 
 app.get("/dashboard", authMiddleware, (req, res) => {
   res.json({ message: "Bienvenido al dashboard" });
+});
+app.get("/carrito", (res) => {
+  res.redirect("/carrito");
 });
 
 // Configuracion de redireccion (por defecto)
