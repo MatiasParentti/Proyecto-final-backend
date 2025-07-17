@@ -42,7 +42,7 @@ const loginUser = (email, password) => {
     { expiresIn: "1h" }
   );
 
-  return { token, userId: user.id };
+  return { token, userId: user.id, rol: user.rol };
 };
 
 module.exports = { registerUser, loginUser };

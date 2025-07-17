@@ -13,9 +13,9 @@ const register = (req, res) => {
 const login = (req, res) => {
   const { email, password } = req.body;
   try {
-    const { token, userId } = loginUser(email, password);
+    const { token, userId , rol } = loginUser(email, password);
     req.loggingContext = { userId };
-    res.json({ message: "Login exitoso", token, userId });
+    res.json({ message: "Login exitoso", token, userId, rol });
   } catch (err) {
     res.status(401).json({ error: err.message });
   }

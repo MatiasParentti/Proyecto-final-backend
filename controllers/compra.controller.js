@@ -25,9 +25,9 @@ const finalizarCompra = (req, res) => {
     0
   );
 
-  const result = db
-    .prepare("DELETE FROM carrito WHERE user_id = ?")
-    .run(userId);
+  const result = db;
+    //.prepare("DELETE FROM carrito WHERE user_id = ?")
+    //.run(userId);
 
   console.log(
     chalk.green(
