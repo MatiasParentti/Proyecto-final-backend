@@ -37,3 +37,4 @@ Thumbs.db
 .eslintcache
 .parcel-cache/
 .next/
+*.db

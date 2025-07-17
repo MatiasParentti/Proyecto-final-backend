@@ -38,25 +38,6 @@ CREATE TABLE IF NOT EXISTS logs (
     FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
 
-CREATE TABLE IF NOT EXISTS compras (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
-    total REAL NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES usuarios(id)
-);
-
-CREATE TABLE IF NOT EXISTS compras_detalles (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    compra_id INTEGER NOT NULL,
-    producto_id INTEGER NOT NULL,
-    cantidad INTEGER NOT NULL,
-    precio_unitario REAL NOT NULL,
-    FOREIGN KEY (compra_id) REFERENCES compras(id),
-    FOREIGN KEY (producto_id) REFERENCES productos(id)
-);
-
-
 `);
 
 console.log("DB run 🚀");
